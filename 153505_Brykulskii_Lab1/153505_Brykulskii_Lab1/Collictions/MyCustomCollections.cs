@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 
 class MyCustomCollections<T> : ICustomCollection<T>, IEnumerable<T>
 {

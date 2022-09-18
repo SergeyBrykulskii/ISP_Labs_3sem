@@ -6,20 +6,11 @@ class PayrollDepartment
     private MyCustomCollections<TypeOfWork> typesOfWorks;
     public int TotalSalary { get; private set; }
 
-    public delegate void AddedWorkHandler(string message);
-    public event AddedWorkHandler? AddedWork;
-    public event EventHandler<ChengesOfListsEventArgs>? ChengesOfLists;
+    public delegate void AddedWorkForWorkerHandler(string message);
+    public event AddedWorkForWorkerHandler? AddedWork;
 
-    /*    
-    protected virtual void OnChengesOfLists(ChengesOfListsEventArgs e)
-    {
-        ChengesOfLists?.Invoke(this, e);
-    }
+    public event EventHandler<ChengesOfListsEventArgs> ChengesOfLists;
 
-    public void SimulateChengesOfList(string message)
-    {
-        OnChengesOfLists(new ChengesOfListsEventArgs(message));
-    }*/
     
     public PayrollDepartment()
     {
@@ -32,14 +23,12 @@ class PayrollDepartment
     {
         workers.Add(new Worker(name, surname));
         ChengesOfLists?.Invoke(this, new ChengesOfListsEventArgs($"Worker {name} {surname} was added"));
-        //SimulateChengesOfList($"Worker {name} {surname} was added");
     }
 
     public void AddTypeOfWork(string jobTitle, int price)
     {
         typesOfWorks.Add(new TypeOfWork(jobTitle, price));
         ChengesOfLists?.Invoke(this, new ChengesOfListsEventArgs($"Type of work \"{jobTitle}\" was added"));
-        //SimulateChengesOfList($"Type of work \"{jobTitle}\" was added");
     }
 
     public void AddWorkThatWorkerDid(string nameOfWorker, string surnameOfWorker, string typeOfWorkThatWorkerDid)
@@ -63,7 +52,6 @@ class PayrollDepartment
                     if (currentTypeOfWork.Name == typeOfWorkThatWorkerDid)
                     {
                         AddedWork?.Invoke($"To {currentWorker.Name} {currentWorker.Surname} was added work {currentTypeOfWork.Name} with price {currentTypeOfWork.Price}");
-                        //Console.WriteLine($"To {currentWorker.Name} {currentWorker.Surname} was added work {currentTypeOfWork.Name} with price {currentTypeOfWork.Price}");
                         currentWorker.AddWork(currentTypeOfWork);
                         TotalSalary += currentTypeOfWork.Price;
                         return;

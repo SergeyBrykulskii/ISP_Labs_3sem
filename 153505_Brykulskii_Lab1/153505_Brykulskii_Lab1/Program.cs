@@ -47,8 +47,10 @@ Console.WriteLine($"Current in list of integers: {intList.Current()}");
 */
 
 PayrollDepartment dep1 = new();
-Journal journal1 = new(dep1);
-//dep1.AddedWork += DisplayMessage;
+Journal journal1 = new();
+
+dep1.ChengesOfLists += journal1.AddEvent;
+dep1.AddedWork += DisplayMessage;
 
 dep1.AddWorker("Ivan", "Ivanov");
 dep1.AddWorker("Petr", "Petrov");

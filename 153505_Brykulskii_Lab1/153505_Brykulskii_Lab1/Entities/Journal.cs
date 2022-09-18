@@ -3,11 +3,10 @@
     private int NumberOfEvents { get; set; }
     public string[] EventsList { get; set; }
 
-    public Journal(PayrollDepartment pd)
+    public Journal()
     {
         NumberOfEvents = 0;
         EventsList = new string[1];
-        pd.ChengesOfLists += AddEvent;
     }
 
     public void AddEvent(object Sender, ChengesOfListsEventArgs e)
