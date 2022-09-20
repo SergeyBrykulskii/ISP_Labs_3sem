@@ -22,7 +22,7 @@
             Salary = 0;
         }
         
-        public void AddWork(Job job)
+        public void AddJob(Job job)
         {
             jobThatWorkerDid.Add(job);
             Salary += job.Price;
