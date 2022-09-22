@@ -6,6 +6,10 @@ namespace _153505_Brykulskii_Lab3.Entities
 {
     class PayrollDepartment
     {
+        public delegate void AddedWorkForWorkerHandler(string message);
+
+        public event EventHandler<PayrollDepartmentEventArgs> ChengesOfLists;
+        
         private List<Worker> workers;
         private Dictionary<string, Job> jobs;
         public int TotatalSalary { get; private set; }
@@ -28,6 +32,7 @@ namespace _153505_Brykulskii_Lab3.Entities
             else
             {
                 workers.Add(newWorker);
+                ChengesOfLists?.Invoke(this, new PayrollDepartmentEventArgs($"Worker {name} {surname} was added"));
             }
         }
 
@@ -42,6 +47,7 @@ namespace _153505_Brykulskii_Lab3.Entities
             else
             {
                 jobs.Add(name, newJob);
+                ChengesOfLists?.Invoke(this, new PayrollDepartmentEventArgs($"Type of work \"{name}\" was added"));
             }
         }
 
@@ -65,7 +71,8 @@ namespace _153505_Brykulskii_Lab3.Entities
                 Console.WriteLine("Job not found");
                 return;
             }
-   
+
+            ChengesOfLists?.Invoke(this, new PayrollDepartmentEventArgs($"Type of work \"{name}\" was added to worker {name} {surname}"));
             worker.AddJob(job);
             TotatalSalary += job.Price;
         }
@@ -79,7 +86,7 @@ namespace _153505_Brykulskii_Lab3.Entities
 
         public int GetTotalSalary()
         {
-            return TotatalSalary;
+            return workers.Sum(w => w.Salary);
         }
 
         public int GetTotalSalaryForWorker(string name, string surname)
@@ -93,7 +100,7 @@ namespace _153505_Brykulskii_Lab3.Entities
             return worker.Salary;
         }
 
-        public string GetNameOfTheWorkerWithTheHighestSalary()
+        public string? GetNameOfTheWorkerWithTheHighestSalary()
         {
             if (workers == null)
             {
@@ -108,5 +115,48 @@ namespace _153505_Brykulskii_Lab3.Entities
         {
             return workers.Count(w => w.Salary > salary);
         }
+        
+        
+        public List<ListSelaryForworker> GetListSalaryForWorker(string name, string surname)
+        {
+            Worker? worker = workers.Find(w => w.Name == name && w.Surname == surname);
+            while (worker == null)
+            {
+                Console.WriteLine("Worker not found");
+                Console.WriteLine("Enter name of worker");
+                name = Console.ReadLine();
+                Console.WriteLine("Enter surname of worker");
+                surname = Console.ReadLine();
+                worker = workers.Find(w => w.Name == name && w.Surname == surname);
+            }
+            var list = from jobs in worker.jobThatWorkerDid
+                     group jobs by jobs.TitleOfJob;
+            
+            var ls = new List<ListSelaryForworker>();
+
+            foreach (var item in list)
+            {
+                ls.Add(new ListSelaryForworker(item.Key, (from it in item select it.Price).ToList()));
+            }
+
+            return ls;
+        }
+    }
+    class ListSelaryForworker
+    {
+        public string TitleOfJob { get; set; }
+        public List<int> Salaries { get; set; }
+
+        public ListSelaryForworker(string titleOfJob, List<int> salaries)
+        {
+            TitleOfJob = titleOfJob;
+            Salaries = salaries.ToList();
+        }
+
+        public override string ToString()
+        {
+            return $"Title of job: {TitleOfJob}, Salaries: {string.Join(", ", Salaries)}";
+        }
     }
 }
+

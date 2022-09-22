@@ -2,9 +2,9 @@
 {
     class Worker
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Salary { get; set; }
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public int Salary { get; private set; }
 
         public List<Job> jobThatWorkerDid;
         public Worker()

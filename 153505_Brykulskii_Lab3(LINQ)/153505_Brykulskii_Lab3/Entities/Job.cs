@@ -2,16 +2,16 @@
 {
     class Job
     {
-        public string Name { get; set; }
+        public string TitleOfJob { get; set; }
         public int Price { get; set; }
         public Job(string name, int price)
         {
-            Name = name;
+            TitleOfJob = name;
             Price = price;
         }
         public Job(string name)
         {
-            Name = name;
+            TitleOfJob = name;
             Price = 0;
         }
 
@@ -24,12 +24,17 @@
                 return false;
             }
             
-            return Name == job.Name;
+            return TitleOfJob == job.TitleOfJob;
         }
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode();
+            return TitleOfJob.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"Title of job: {TitleOfJob}, Price: {Price}";
         }
     }
 }
