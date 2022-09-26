@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\153505_Brykulskii_Lab5.Domain\153505_Brykulskii_Lab5.Domain.csproj" />
+    <ProjectReference Include="..\153505_Brykulskii_Lab5\153505_Brykulskii_Lab5.csproj" />
+  </ItemGroup>
+
 </Project>

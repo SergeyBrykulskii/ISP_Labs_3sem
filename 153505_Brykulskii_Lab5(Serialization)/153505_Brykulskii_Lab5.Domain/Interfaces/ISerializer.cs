@@ -2,7 +2,7 @@
 
 namespace _153505_Brykulskii_Lab5.Domain.Interfaces
 {
-    interface ISerializer
+    public interface ISerializer
     {
         IEnumerable<RailwayStation> DeSerializeByLINQ(string fileName);
         IEnumerable<RailwayStation> DeSerializeXML(string fileName);
