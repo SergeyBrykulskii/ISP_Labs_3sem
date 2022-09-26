@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "153505_Brykulskii_Lab5", "153505_Brykulskii_Lab5\153505_Brykulskii_Lab5.csproj", "{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "153505_Brykulskii_Lab5.Domain", "153505_Brykulskii_Lab5.Domain\153505_Brykulskii_Lab5.Domain.csproj", "{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "153505_Brykulskii_Lab5.Domain", "153505_Brykulskii_Lab5.Domain\153505_Brykulskii_Lab5.Domain.csproj", "{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serializer", "Serializer\Serializer.csproj", "{C3B9CAFF-F47F-400D-A58C-4C1AC42E3662}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B9CAFF-F47F-400D-A58C-4C1AC42E3662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B9CAFF-F47F-400D-A58C-4C1AC42E3662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B9CAFF-F47F-400D-A58C-4C1AC42E3662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B9CAFF-F47F-400D-A58C-4C1AC42E3662}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
