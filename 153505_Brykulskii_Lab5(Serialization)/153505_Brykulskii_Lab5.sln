@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "153505_Brykulskii_Lab5", "153505_Brykulskii_Lab5\153505_Brykulskii_Lab5.csproj", "{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "153505_Brykulskii_Lab5.Domain", "153505_Brykulskii_Lab5.Domain\153505_Brykulskii_Lab5.Domain.csproj", "{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA116F52-FEC7-420D-9B2E-074BEF0F3D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A855FA2B-98F6-4E5B-B04C-87858DAE31FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F18EF9DF-52DC-4444-9C67-9BBD12CC674E}
+	EndGlobalSection
+EndGlobal
