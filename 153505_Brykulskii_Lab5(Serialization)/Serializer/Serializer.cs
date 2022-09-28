@@ -1,15 +1,37 @@
 ﻿using _153505_Brykulskii_Lab5.Domain.Entities;
+using System.Text.Json;
 
-namespace Serializer
+namespace _153505_Brykulskii_Lab5.Serializer
 {
-    class Serializer : _153505_Brykulskii_Lab5.Domain.Interfaces.ISerializer
+    public class Serializer : Domain.Interfaces.ISerializer
     {
-        public IEnumerable<RailwayStation> DeSerializeByLINQ(string fileName)
+        public void SerializeJSON(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
+        {
+            foreach(var item in ListOfRailwayStations)
+            {
+                var json = JsonSerializer.Serialize(item);
+                File.AppendAllText(fileName, json);
+            }
+        }
+
+        public void SerializeByLINQ(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeXML(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
         {
             throw new NotImplementedException();
         }
 
         public IEnumerable<RailwayStation> DeSerializeJSON(string fileName)
+        {
+            var json = File.ReadAllText(fileName);
+            var ListOfRailwayStations = JsonSerializer.Deserialize<IEnumerable<RailwayStation>>(json);
+            return ListOfRailwayStations;
+        }
+
+        public IEnumerable<RailwayStation> DeSerializeByLINQ(string fileName)
         {
             throw new NotImplementedException();
         }
@@ -19,19 +41,5 @@ namespace Serializer
             throw new NotImplementedException();
         }
 
-        public void SerializeByLINQ(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SerializeJSON(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SerializeXML(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

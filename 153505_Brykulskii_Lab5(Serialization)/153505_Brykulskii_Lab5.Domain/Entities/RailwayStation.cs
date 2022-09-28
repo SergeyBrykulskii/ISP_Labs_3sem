@@ -3,5 +3,11 @@
     [Serializable]
     public class RailwayStation
     {
+        public string Name { get; set; }
+
+        public RailwayStation(string name)
+        {
+            Name = name;
+        }
     }
 }
