@@ -5,9 +5,16 @@
     {
         public string Name { get; set; }
 
-        public RailwayStation(string name)
+        public LuggageCompartment LCom { get; set; }
+
+        public int NumberOfPassengers { get; set; }
+
+
+        public RailwayStation(string name, int numberOfPassengers, LuggageCompartment lCom)
         {
-            Name = name;
+            Name = name;  
+            NumberOfPassengers = numberOfPassengers;
+            LCom = lCom;
         }
     }
 }
