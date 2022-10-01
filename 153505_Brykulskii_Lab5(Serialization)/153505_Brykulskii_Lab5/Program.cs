@@ -10,6 +10,8 @@ listOfRailwayStations.Add(new RailwayStation("Kharkiv", 300, new LuggageCompartm
 var serializer = new Serializer();
 
 serializer.SerializeJSON(listOfRailwayStations, "RailwayStation.json");
+serializer.SerializeByLINQ(listOfRailwayStations, "RailwayStation(linq).xml");
+serializer.SerializeXML(listOfRailwayStations, "RailwayStation.xml");
 
 listOfRailwayStationsFromFile = serializer.DeSerializeJSON("RailwayStation.json").ToList<RailwayStation>();
 
@@ -19,4 +21,20 @@ foreach (var item in listOfRailwayStationsFromFile)
         $"Luggage compartment capacity: {item.LCom.Capacity}, Luggage compartment is free: {item.LCom.IsFree}");
 }
 
-serializer.SerializeByLINQ(listOfRailwayStations, "RailwayStation.xml");
+listOfRailwayStationsFromFile = serializer.DeSerializeXML("RailwayStation.xml").ToList<RailwayStation>();
+
+Console.WriteLine();
+foreach (var item in listOfRailwayStationsFromFile)
+{
+    Console.WriteLine($"Name: {item.Name}, Number of passengers: {item.NumberOfPassengers}, " +
+        $"Luggage compartment capacity: {item.LCom.Capacity}, Luggage compartment is free: {item.LCom.IsFree}");
+}
+
+listOfRailwayStationsFromFile = serializer.DeSerializeByLINQ("RailwayStation(linq).xml").ToList<RailwayStation>();
+
+Console.WriteLine();
+foreach (var item in listOfRailwayStationsFromFile)
+{
+    Console.WriteLine($"Name: {item.Name}, Number of passengers: {item.NumberOfPassengers}, " +
+        $"Luggage compartment capacity: {item.LCom.Capacity}, Luggage compartment is free: {item.LCom.IsFree}");
+}

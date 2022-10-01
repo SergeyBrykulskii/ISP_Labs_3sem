@@ -1,6 +1,7 @@
 ﻿using _153505_Brykulskii_Lab5.Domain.Entities;
 using System.Text.Json;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace _153505_Brykulskii_Lab5.Serializer
 {
@@ -30,7 +31,9 @@ namespace _153505_Brykulskii_Lab5.Serializer
 
         public void SerializeXML(IEnumerable<RailwayStation> ListOfRailwayStations, string fileName)
         {
-            throw new NotImplementedException();
+            XmlSerializer formatter = new (typeof(List<RailwayStation>));
+            using FileStream fs = new(fileName, FileMode.OpenOrCreate);
+            formatter.Serialize(fs, ListOfRailwayStations);
         }
 
         public IEnumerable<RailwayStation> DeSerializeJSON(string fileName)
@@ -41,12 +44,26 @@ namespace _153505_Brykulskii_Lab5.Serializer
 
         public IEnumerable<RailwayStation> DeSerializeByLINQ(string fileName)
         {
-            throw new NotImplementedException();
+            var xml = XDocument.Load(fileName);
+            var railwayStations = from railwayStation in xml.Element("RailwayStations").Elements("RailwayStation")
+                                  select new RailwayStation
+                                  {
+                                      Name = railwayStation.Element("Name").Value,
+                                      NumberOfPassengers = int.Parse(railwayStation.Element("NumberOfPassengers").Value),
+                                      LCom = new LuggageCompartment
+                                      {
+                                          Capacity = int.Parse(railwayStation.Element("LuggageCompartment").Element("Capacity").Value),
+                                          IsFree = bool.Parse(railwayStation.Element("LuggageCompartment").Element("IsFree").Value)
+                                      }
+                                  };
+            return railwayStations;
         }
 
         public IEnumerable<RailwayStation> DeSerializeXML(string fileName)
         {
-            throw new NotImplementedException();
+            XmlSerializer formatter = new(typeof(List<RailwayStation>));
+            using FileStream fs = new(fileName, FileMode.OpenOrCreate);
+            return formatter.Deserialize(fs) as IEnumerable<RailwayStation>;
         }
 
     }
