@@ -1,7 +1,8 @@
 ﻿namespace _153505_Brykulskii_Lab6.Interfaces
 {
-    public partial class IFileService
+    public interface IFileService<T> where T : class
     {
-
+        IEnumerable<T> ReadFile(string fileName);
+        void SaveData(IEnumerable<T> data, string fileName);
     }
 }
