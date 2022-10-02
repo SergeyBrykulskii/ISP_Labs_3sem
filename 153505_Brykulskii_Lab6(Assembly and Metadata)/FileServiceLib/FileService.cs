@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace FileServiceLib
 {
-    public class FileService<T> : IFileService<T> where T : class
+    internal class FileService<T> : IFileService<T> where T : class
     {
         public IEnumerable<T> ReadFile(string fileName)
         {

@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <BaseOutputPath></BaseOutputPath>
+    <BaseOutputPath>C:\Users\Serxio\Desktop\C#\153505_Brykulskii_Lab6(Assembly and Metadata)\153505_Brykulskii_Lab6\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -21,5 +21,9 @@
             IsMale = isMale;
         }
 
+        public override string ToString()
+        {
+            return Name + " " + Salary + " " + IsMale;
+        }
     }
 }
