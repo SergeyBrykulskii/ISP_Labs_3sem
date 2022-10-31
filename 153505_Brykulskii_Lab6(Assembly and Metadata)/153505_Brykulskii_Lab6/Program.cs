@@ -17,7 +17,7 @@ Type FileService = asm.GetType("FileServiceLib" + "." + "FileService`1").MakeGen
 MethodInfo? SaveDataToFile = FileService.GetMethod("SaveData");
 MethodInfo? LoadDataFromFile = FileService.GetMethod("ReadFile");
 
-SaveDataToFile.Invoke(Activator.CreateInstance(FileService), new object[] { listOfEmployee, "Employee.json" });
+SaveDataToFile?.Invoke(Activator.CreateInstance(FileService), new object[] { listOfEmployee, "Employee.json" });
 var listOfEmployeeFromFile = LoadDataFromFile.Invoke(Activator.CreateInstance(FileService), new object[] {"Employee.json" });
 
 foreach (var item in (IEnumerable<Employee>)listOfEmployeeFromFile)
