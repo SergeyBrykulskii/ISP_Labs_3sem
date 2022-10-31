@@ -130,9 +130,10 @@ namespace _153505_Brykulskii_Lab3.Entities
                 worker = workers.Find(w => w.Name == name && w.Surname == surname);
             }
             var list = from jobs in worker.jobThatWorkerDid
-                     group jobs by jobs.TitleOfJob;
-            
-            var ls = new List<ListSelaryForworker>();
+                     group jobs by jobs.TitleOfJob into gr
+                       select new 
+
+              var ls = new List<ListSelaryForworker>();
 
             foreach (var item in list)
             {
